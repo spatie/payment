@@ -1,6 +1,17 @@
 {
     "name": "spatie/payment",
-    "description": "",
+    "license": "MIT",
+    "description": "Accept and verify payments from payment gateways",
+    "keywords":
+        [
+            "payment",
+            "gateway",
+            "europabank",
+            "e-commerce",
+            "webshop",
+            "financial",
+            "laravel"
+        ],
     "authors": [
         {
             "name": "Freek Van der Herten",
@@ -9,14 +20,15 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
+        "illuminate/support": "~4.2",
+        "illuminate/validation": "~4.2"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
         "psr-0": {
-            "Spatie\\Payment\\": "src/"
+            "Spatie\\Payment": "src/"
         }
     },
     "minimum-stability": "stable"
