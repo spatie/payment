@@ -40,8 +40,8 @@ This package also comes with a facade, which provides an easy way to call the th
 )
 ```
 
-##Configurion
-You can publish the configuration file using this artisan-command:
+##Configuration
+You can publish the configuration file using this command:
 ```
 php artisan config:publish spatie/payment
 ```
@@ -99,22 +99,21 @@ return
 
 ##General flow
 
-Though there are multiple ways to pay an order, M
-most payment gateways except you to follow this flow in your checkout process.
+Though there are multiple ways to pay an order, most payment gateways except you to follow the following flow in your checkout process:
 
 ###1. The customer is redirected to the payment provider
 After the customer has gone through the checkout process and is ready to pay, the customer must be redirected to site of the payment provider.
 
-This is done by submitting a form with some hidden fields. The form must post to the site of the payment provider. The hidden fields specify, amongst others, the amount that must be paid, the order id and a hash.
+The redirection is accomplished by submitting a form with some hidden fields. The form must post to the site of the payment provider. The hidden fields minimally specify the amount that must be paid, the order id and a hash.
 
-The hash is calculated using the hidden form fields and is used to verify if the request to the payment provider is valid.
+The hash is calculated using the hidden form fields and a non-public secret. The hash used by the payment providerd to verify if the request is valid.
 
 
 ###2. The customer pays
 The customer arrived on the site of the payment provider and gets to choose a payment method. All steps necessary to pay the order are taken care of by the payment provider. 
 
 ###3. The customer gets redirected back
-After having paid the order the customer is redirected back. In the redirection request to the e-commerce site some values are returned. The values are usually the order id, a paymentresult and a hash are returned.
+After having paid the order the customer is redirected back. In the redirection request to the shop-site some values are returned. The values are usually the order id, a paymentresult and a hash are returned.
 
 The hash is calculated out of some of the fields returned and a secret non-public value. This hash is used to verify if the request is valid and comes from the payment provider. It is paramount that this hash is thoroughly checked.
 
@@ -123,7 +122,7 @@ The payment result can be something like "payment ok", "customer cancelled payme
 ##Usage
 This package can greatly help you with step 1. and 3. of the general flow
 
-##1. Redirecting to customer to the payment provider
+###1. Redirecting to customer to the payment provider
 Let's get technical. In the controller in which you will present a view to redirect to user to the payment provider you must inject the payment gateway like so:
 
 ```php
@@ -273,7 +272,7 @@ The result of this form is something like:
 ```
 When clicking the submit button the customer gets redirected to the payment gateway.
 
-##2. Verifying the payment
+###2. Verifying the payment
 So we redirect the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
 
 We must validate if the redirect to our site is a valid request (we don't want imposters to wrongfully place non-paid order).

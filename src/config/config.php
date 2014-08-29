@@ -8,7 +8,7 @@ return
             /*
              * MPI Account number
              */
-            'uid'          => getenv('EUROPABANK_UID'),
+            'uid' => getenv('EUROPABANK_UID'),
 
             /*
              * The url to where the payment will take place
