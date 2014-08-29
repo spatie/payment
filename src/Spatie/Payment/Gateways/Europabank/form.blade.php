@@ -28,7 +28,7 @@
     {{ Form::hidden('Emailfrom', Config::get('payment::europabank.secondChangeEmailSender')) }}
 @endif
 
-{{ Form::submit('Betalen') }}
+{{ Form::submit(Lang::get('payment::form.submitButtonText')) }}
 
 
 </form>
