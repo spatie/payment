@@ -39,9 +39,6 @@ class PaymentGatewayResponseValidator {
                 'Hash'    => 'required',
                 'Orderid' => 'required',
                 'Status'  => 'required',
-                'Brand'   => 'required',
-                'Refnr'   => 'required',
-                'Txtype'  => 'required',
             ];
 
         if (Validator::make($this->gatewayResponse, $rules)->fails())
