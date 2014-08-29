@@ -28,7 +28,7 @@ return
             'formCss'=> '',
 
             /*
-             * Optionan title of the payment form
+             * Optional title of the payment form
              */
             'formTitle' => '',
 
