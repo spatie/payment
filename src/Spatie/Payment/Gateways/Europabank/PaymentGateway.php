@@ -45,11 +45,11 @@ class PaymentGateway implements PaymentGatewayInterface {
     private function calculatePaymentFormHash(PayableOrder $order)
     {
         return sha1(
-            Config::get('payment.europabank.uid') .
+            Config::get('payment::europabank.uid') .
             $order->getPaymentOrderId() .
             $order->getPaymentAmount() .
             $order->getPaymentDescription() .
-            Config::get('payment.europabank.clientSecret')
+            Config::get('payment::europabank.clientSecret')
         );
     }
 

@@ -1,7 +1,7 @@
 {
     "name": "spatie/payment",
     "license": "MIT",
-    "description": "Accept and verify payments from payment gateways",
+    "description": "A Laravel 4 package to accept and verify payments from payment gateways",
     "keywords":
         [
             "payment",
