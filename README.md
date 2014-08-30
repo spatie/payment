@@ -144,7 +144,7 @@ class CheckoutConfirmOrderController extends BaseController {
     }
 ```
 
-In the same controller in the method in which you present the view you must set the ```$order``` that you've probably build up in the checkout-proces
+In the same controller in the method in which you present the view you must set the ```$order``` that you've probably build up during the checkout-process.
 
 ```php
 public function showOrderDetails()
@@ -156,7 +156,7 @@ public function showOrderDetails()
     }
 ```
 
-The ```$order``` you pass to the payment gateway must adhere to the ```PayableOrder``` interface:
+The ```$order``` you pass to the payment gateway must adhere to the ```PayableOrder```-interface:
 
 ```php
 
@@ -211,7 +211,7 @@ class Order extends Eloquent implements PayableOrder
     }
 
     /**
-     * Should be in eurocents for payments providers
+     * Should be in eurocents for most payments providers
      * @return double
      */
     public function getPaymentAmount()
@@ -240,16 +240,16 @@ class Order extends Eloquent implements PayableOrder
      */
     public function getCustomerLanguage()
     {
-        return 'nl';
+        return App::getLocale();
     }
 }
 ```
 
-Please not that, for Europabank, the ```getPaymentAmount```should be specified in eurocents.
+Please note that for most payment providers the result of ```getPaymentAmount()```should be specified in eurocents.
 
-After you've taken this steps you can generate the form that will redirect the customer to the payment provider.
+After you've taken care of all steps above you can generate the form that will redirect the customer to the payment provider.
 
-In your view you can simply use the ```getPaymentForm```-method
+In your view you can simply use the ```getPaymentForm()```-method
 
 ```
 {{ $paymentGateway->getPaymentForm() }}
@@ -273,13 +273,13 @@ The result of this form is something like:
 When clicking the submit button the customer gets redirected to the payment gateway.
 
 ###2. Verifying the payment
-So we redirect the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
+So now we've redirected the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
 
 We must validate if the redirect to our site is a valid request (we don't want imposters to wrongfully place non-paid order).
 
 In the controller the handles the request coming from the payment provider inject the ```PaymentGateway```
 
-```
+```php
 use Spatie\Payment\PaymentGateway;
 
 class CheckoutPaymentVerificationController extends BaseController {

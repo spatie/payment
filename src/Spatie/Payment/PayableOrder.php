@@ -8,7 +8,9 @@ interface PayableOrder {
     public function getPaymentOrderId();
 
     /**
+     * Should be in eurocents for most payments providers
      * @return double
+     *
      */
     public function getPaymentAmount();
 
