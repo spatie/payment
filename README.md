@@ -275,6 +275,8 @@ When clicking the submit button the customer gets redirected to the payment gate
 ###2. Verifying the payment
 So now we've redirected the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
 
+The payment provider will redirect the customer to the url of the route that is specified in the ```paymentLandingPageRoute```-option of the config-file.
+
 We must validate if the redirect to our site is a valid request (we don't want imposters to wrongfully place non-paid order).
 
 In the controller the handles the request coming from the payment provider inject the ```PaymentGateway```
