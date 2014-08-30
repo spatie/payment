@@ -298,7 +298,7 @@ Then, in the same controller, in the method you use to handle the request coming
   public function verifyPayment()
     {
         $this->paymentGateway->validateGatewayResponse(Checkout::getCurrentOrderId());
-        }
+    }
 ```
 That method expects the order id that you are expecting a payment from. Usually you should have stored that order id in session prior to redirecting to user to the payment provider.
 
