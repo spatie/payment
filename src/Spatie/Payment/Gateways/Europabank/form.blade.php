@@ -24,8 +24,8 @@
     {{ Form::hidden('MerchantEmail', Config::get('payment::europabank.merchantEmail')) }}
 @endif
 
-@if (Config::get('payment::europabank.secondChangeEmailSender'))
-    {{ Form::hidden('Emailfrom', Config::get('payment::europabank.secondChangeEmailSender')) }}
+@if (Config::get('payment::europabank.secondChanceEmailSender'))
+    {{ Form::hidden('Emailfrom', Config::get('payment::europabank.secondChanceEmailSender')) }}
 @endif
 
 {{ Form::submit(Lang::get('payment::form.submitButtonText')) }}

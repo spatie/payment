@@ -91,7 +91,7 @@ return
              * Optional e-mail address to use as sender for the second change
              * or payment link e-mail
              */
-            'secondChangeEmailSender' => '',
+            'secondChanceEmailSender' => '',
         ]
     ];
 ```
@@ -370,7 +370,7 @@ Currently the only implemented gateway provider is Europabank. They can give fee
 
 The [Europabank API](https://www.europabank.be/ecommerce-professioneel) has many more options than this package currently provides.
 
-All the examples above are coded to an interface: it should be fairly easy to swap out Europabank and use another provider like [Ingenico](http://payment-services.ingenico.com/). You most certainly are welcome to send push requests to implement other providers.
+All the examples above are coded to an interface: it should be fairly easy to swap out Europabank and use an other provider like [Ingenico](http://payment-services.ingenico.com/). You most certainly are welcome to send push requests to implement other providers.
 
 
 
