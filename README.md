@@ -356,6 +356,10 @@ class CheckoutPaymentVerificationController extends BaseController {
                 //take necessary actions to mark order as failed
                 break;
 
+            case PaymentGateway::PAYMENT_TIMED_OUT:
+                //take necessary actions to mark order as failed
+                break;
+
             default:
                 throw new Exception('Unknown payment gateway answer');
                 break;
