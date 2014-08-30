@@ -270,7 +270,7 @@ The result of this form is something like:
 <input type="submit" value="Pay order">
 </form>
 ```
-When clicking the submit button the customer gets redirected to the payment gateway.
+When clicking the submit button the customer gets redirected to the site of payment provider.
 
 ###2. Verifying the payment
 So now we've redirected the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
