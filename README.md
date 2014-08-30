@@ -310,7 +310,7 @@ Notice that in previous example ```Checkout::getCurrentOrderId()``` is used. If 
 
 If the ```validateGatewayResponse```-method concludes that the request was not valid a ```Spatie\Payment\Exceptions\PaymentVerificationFailedException```-exception is thrown.
 
-##3. Getting the payment result
+###3. Getting the payment result
 After you've verified that the redirect from the payment provider to your site is valid you can determine the result of the payment.
 
 To determine the result you can use the ```getPaymentResult()```-method. It can return these constants:
