@@ -290,9 +290,11 @@ class CheckoutPaymentVerificationController extends BaseController {
     {
         $this->paymentGateway = $paymentGateway;
     }
+    
+    ...
 ```
 
-Then, in the same controller, in the method you use to handle the request coming from the payment provider, use the ```validateGatewayResponseMethod```:
+Then, in the same controller, in the method you use to handle the request coming from the payment provider, use the ```validateGatewayResponse```-method:
 
 ```php
   public function verifyPayment()
@@ -300,7 +302,7 @@ Then, in the same controller, in the method you use to handle the request coming
         $this->paymentGateway->validateGatewayResponse(Checkout::getCurrentOrderId());
     }
 ```
-That method expects the order id that you are expecting a payment from. Usually you should have stored that order id in session prior to redirecting to user to the payment provider.
+That method expects the order id that you are expecting a payment for. Usually you should have stored that order id in session prior to redirecting to user to the site of payment provider.
 
 Notice that in previous example ```Checkout::getCurrentOrderId()``` is used. If you want such an elegant syntax check out the [spatie/checkout-package](https://github.com/freekmurze/checkout).
 
@@ -309,7 +311,7 @@ If the ```validateGatewayResponse```-method concludes that the request was not v
 ##3. Getting the payment result
 After you've verified that the redirect from the payment provider to your site is valid you can determine the result of the payment.
 
-To determine the result you can use the ```getPaymentResult()```-method. This method can return these constants:
+To determine the result you can use the ```getPaymentResult()```-method. It can return these constants:
 - ```Spatie\Payment\PaymentGateway::PAYMENT_RESULT_OK```: all is well, the order has been paid
 - ```PaymentGateway::PAYMENT_RESULT_CANCELLED_BY_CARDHOLDER```: the customer has cancelled the payment
 - ```PaymentGateway::PAYMENT_RESULT_DECLINED```: the customer tried to pay, but his payment got declined by that financial institution that handles the payment
