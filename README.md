@@ -315,9 +315,9 @@ After you've verified that the redirect from the payment provider to your site i
 
 To determine the result you can use the ```getPaymentResult()```-method. It can return these constants:
 - ```Spatie\Payment\PaymentGateway::PAYMENT_RESULT_OK```: all is well, the order has been paid
-- ```PaymentGateway::PAYMENT_RESULT_CANCELLED_BY_CARDHOLDER```: the customer has cancelled the payment
-- ```PaymentGateway::PAYMENT_RESULT_DECLINED```: the customer tried to pay, but his payment got declined by that financial institution that handles the payment
-- ```PaymentGateway::PAYMENT_RESULT_FAILED```: an unexpected error occured.
+- ```Spatie\Payment\PaymentGateway::PAYMENT_RESULT_CANCELLED_BY_CARDHOLDER```: the customer has cancelled the payment
+- ```Spatie\Payment\PaymentGateway::PAYMENT_RESULT_DECLINED```: the customer tried to pay, but his payment got declined by that financial institution that handles the payment
+- ```Spatie\Payment\PaymentGateway::PAYMENT_RESULT_FAILED```: an unexpected error occured.
 
 
 Here is an example controller in which we verify the payment-request and determine the result:
