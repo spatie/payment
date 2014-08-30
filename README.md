@@ -88,7 +88,7 @@ return
             'merchantEmail' => '',
 
             /*
-             * Optional e-mail address to use as sender for the second change
+             * Optional e-mail address to use as sender for the second chance
              * or payment link e-mail
              */
             'secondChanceEmailSender' => '',
