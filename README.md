@@ -320,7 +320,6 @@ To determine the result you can use the ```getPaymentResult()```-method. It can 
 
 Here is an example controller in which we verify the payment-request and determine the result:
 ```php
-<?php
 use Spatie\Payment\PaymentGateway;
 
 class CheckoutPaymentVerificationController extends BaseController {
@@ -341,22 +340,18 @@ class CheckoutPaymentVerificationController extends BaseController {
         {
             case PaymentGateway::PAYMENT_RESULT_OK:
                 //take necessary actions to mark order as confirmed
-
                 break;
 
             case PaymentGateway::PAYMENT_RESULT_CANCELLED_BY_CARDHOLDER:
                 //take necessary actions to mark order as failed
-
                 break;
 
             case PaymentGateway::PAYMENT_RESULT_DECLINED:
                 //take necessary actions to mark order as failed
-
                 break;
 
             case PaymentGateway::PAYMENT_RESULT_FAILED:
                 //take necessary actions to mark order as failed
-
                 break;
 
             default:
