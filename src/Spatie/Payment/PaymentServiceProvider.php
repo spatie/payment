@@ -33,15 +33,5 @@ class PaymentServiceProvider extends ServiceProvider {
             'Spatie\Payment\Gateways\Europabank\PaymentGateway'
         );
 	}
-
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
-
+    
 }
