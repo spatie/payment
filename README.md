@@ -1,6 +1,6 @@
 Accept and verify payments from payment gateways
 =======
-This Laravel 4 package enables you to accept and verify payments. Currently the only implementation is [Europabank](https://www.europabank.be/ecommerce-professioneel).
+This Laravel 4 package enables you to verify and accept payments. Currently the only implementation is [Europabank](https://www.europabank.be/ecommerce-professioneel).
 
 ##Installation
 The package can be installed through Composer:

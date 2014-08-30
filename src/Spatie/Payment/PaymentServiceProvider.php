@@ -33,5 +33,5 @@ class PaymentServiceProvider extends ServiceProvider {
             'Spatie\Payment\Gateways\Europabank\PaymentGateway'
         );
 	}
-    
+
 }
