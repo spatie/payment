@@ -41,6 +41,6 @@ return
              * Optional e-mail address to use as sender for the second change
              * or payment link e-mail
              */
-            'secondChangeEmailSender' => '',
+            'secondChanceEmailSender' => '',
         ]
     ];

@@ -58,7 +58,7 @@ return
             /*
              * MPI Account number
              */
-            'uid'          => getenv('EUROPABANK_UID'),
+            'uid' => getenv('EUROPABANK_UID'),
 
             /*
              * The url to where the payment will take place
@@ -279,7 +279,7 @@ The payment provider will redirect the customer to the url of the route that is 
 
 We must validate if the redirect to our site is a valid request (we don't want imposters to wrongfully place non-paid order).
 
-In the controller the handles the request coming from the payment provider inject the ```PaymentGateway```
+In the controller that handles the request coming from the payment provider inject the ```PaymentGateway```
 
 ```php
 use Spatie\Payment\PaymentGateway;
