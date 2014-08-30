@@ -304,7 +304,7 @@ Then, in the same controller, in the method you use to handle the request coming
         $this->paymentGateway->validateGatewayResponse(Checkout::getCurrentOrderId());
     }
 ```
-That method expects the order id that you are expecting a payment for. Usually you should have stored that order id in session prior to redirecting to user to the site of payment provider.
+That method requires the order id that you are expecting a payment for. Usually you should have stored that order id in session prior to redirecting to user to the site of payment provider.
 
 Notice that in previous example ```Checkout::getCurrentOrderId()``` is used. If you want such an elegant syntax check out the [spatie/checkout-package](https://github.com/freekmurze/checkout).
 
