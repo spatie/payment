@@ -364,11 +364,11 @@ class CheckoutPaymentVerificationController extends BaseController {
 ```
 
 ##Remarks
-Currently the only implemented gateway provider is Europabank (I've never had to use an other provider in my Laravel-projects).
+Currently the only implemented gateway provider is Europabank. They can give feedback on a payment in many different ways, but this package only supports the 'DIRECT'-redirecttype.
 
-The Europabank API has lots more options than this package currently provides. I've only implemented the methods that I use.
+The [Europabank API](https://www.europabank.be/ecommerce-professioneel) has many more options than this package currently provides.
 
-All the examples above are coded to an interface: it should be very simple to swap out Europabank and use another provider like Ogone. You most certainly are welcome to send push request to implement other providers.
+All the examples above are coded to an interface: it should be fairly easy to swap out Europabank and use another provider like [Ingenico](http://payment-services.ingenico.com/). You most certainly are welcome to send push request to implement other providers.
 
 
 
