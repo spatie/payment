@@ -109,7 +109,7 @@ The redirection is accomplished by submitting a form with some hidden fields. Th
 The hash is calculated using the hidden form fields and a non-public secret. The hash used by the payment providerd to verify if the request is valid.
 
 
-###2. The customer pays
+###2. The customer pays on the site of the payment provider
 The customer arrived on the site of the payment provider and gets to choose a payment method. All steps necessary to pay the order are taken care of by the payment provider. 
 
 ###3. The customer gets redirected back
