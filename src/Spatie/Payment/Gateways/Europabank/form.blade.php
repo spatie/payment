@@ -28,7 +28,7 @@
     {{ Form::hidden('Emailfrom', Config::get('payment::europabank.secondChanceEmailSender')) }}
 @endif
 
-{{ Form::button(Lang::get('payment::form.submitButtonText'),[type="submit"]) }}
+{{ Form::button(Lang::get('payment::form.submitButtonText'),["type"=>"submit"]) }}
 
 
 </form>
