@@ -129,13 +129,13 @@ This package can greatly help you with step 1. and 3. of the general flow
 Let's get technical. In the controller in which you will present a view to redirect to user to the payment provider you must inject the payment gateway like so:
 
 ```php
-use Spatie\Payment\PaymentGateWay;
+use Spatie\Payment\PaymentGateway;
 
 class CheckoutConfirmOrderController extends BaseController {
 
 
     /**
-     * @var PaymentGateWay
+     * @var PaymentGateway
      */
     protected $paymentGateway;
 

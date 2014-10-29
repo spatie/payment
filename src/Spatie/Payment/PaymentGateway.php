@@ -1,7 +1,7 @@
 <?php namespace Spatie\Payment;
 
 /**
- * Interface PaymentGateWay
+ * Interface PaymentGateway
  * @package Spatie\Payment
  */
 interface PaymentGateway {

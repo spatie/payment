@@ -1,6 +1,6 @@
 <?php namespace Spatie\Payment\Gateways\Europabank;
 use Spatie\Payment\PayableOrder;
-use Spatie\Payment\PaymentGateWay as PaymentGatewayInterface;
+use Spatie\Payment\PaymentGateway as PaymentGatewayInterface;
 use Input;
 use View;
 use Config;
