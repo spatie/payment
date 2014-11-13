@@ -8,12 +8,8 @@ This Laravel 4 package enables you to accept payments from payment gateways. Cur
 ##Installation
 The package can be installed through Composer:
 
-```js
-{
-    "require": {
-		"spatie/payment": "dev-master"
-	}
-}
+```
+composer require spatie/payment
 ```
 
 This service provider must be installed:
@@ -53,49 +49,59 @@ A configuration-file with some sensible defaults will be placed in your config/p
 
 ```php
 return
-    [ 'europabank' =>
-        [
-            'clientSecret' => getenv('EUROPABANK_CLIENT_SECRET'),
-            'serverSecret' => getenv('EUROPABANK_SERVER_SECRET'),
+    [
+        'form' =>
+            [
+                /*
+                 * The class or classes that you want to put on the submit button
+                 * of the payment form
+                 */
+                'submitButtonClass' => 'test'
+            ],
 
-            /*
-             * MPI Account number
-             */
-            'uid' => getenv('EUROPABANK_UID'),
+        'europabank' =>
+            [
+                'clientSecret' => getenv('EUROPABANK_CLIENT_SECRET'),
+                'serverSecret' => getenv('EUROPABANK_SERVER_SECRET'),
 
-            /*
-             * The url to where the payment will take place
-             */
-            'mpiUrl' => '',
+                /*
+                 * MPI Account number
+                 */
+                'uid' => getenv('EUROPABANK_UID'),
 
-            /*
-             * The name of the route where Europabank will redirect to
-             * after the payment has been made
-             *
-             */
-            'paymentLandingPageRoute' => 'verifyPayment',
+                /*
+                 * The url to where the payment will take place
+                 */
+                'mpiUrl' => '',
 
-            /*
-             * Optional url of the css which must be applied on the payment form
-             */
-            'formCss'=> '',
+                /*
+                 * The name of the route where Europabank will redirect to
+                 * after the payment has been made
+                 *
+                 */
+                'paymentLandingPageRoute' => 'verifyPayment',
 
-            /*
-             * Optionan title of the payment form
-             */
-            'formTitle' => '',
+                /*
+                 * Optional url of the css which must be applied on the payment form
+                 */
+                'formCss'=> '',
 
-            /*
-             * Optional e-mail address of the merchant
-             */
-            'merchantEmail' => '',
+                /*
+                 * Optional title of the payment form
+                 */
+                'formTitle' => '',
 
-            /*
-             * Optional e-mail address to use as sender for the second chance
-             * or payment link e-mail
-             */
-            'secondChanceEmailSender' => '',
-        ]
+                /*
+                 * Optional e-mail address of the merchant
+                 */
+                'merchantEmail' => '',
+
+                /*
+                 * Optional e-mail address to use as sender for the second chance
+                 * or payment link e-mail
+                 */
+                'secondChanceEmailSender' => '',
+            ]
     ];
 ```
 

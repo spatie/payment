@@ -1,7 +1,7 @@
 {
     "name": "spatie/payment",
     "license": "MIT",
-    "description": "A Laravel 4 package to verify and accept payments from payment gateways",
+    "description": "A Laravel package to verify and accept payments from payment gateways",
     "keywords":
         [
             "payment",
@@ -20,8 +20,8 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "~4.2",
-        "illuminate/validation": "~4.2"
+        "illuminate/support": "4.*|5.*",
+        "illuminate/validation": "4.*|5.*"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"
