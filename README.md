@@ -3,7 +3,7 @@ Accept payments from payment gateways
 [![Latest Stable Version](https://poser.pugx.org/spatie/payment/version.png)](https://packagist.org/packages/spatie/payment)
 [![License](https://poser.pugx.org/spatie/payment/license.png)](https://packagist.org/packages/spatie/payment)
 
-This Laravel 4 package enables you to accept payments from payment gateways. Currently the only implementation is [Europabank](https://www.europabank.be/ecommerce-professioneel).
+This Laravel package enables you to accept payments from payment gateways. Currently the only implementation is [Europabank](https://www.europabank.be/ecommerce-professioneel).
 
 ##Installation
 The package can be installed through Composer:
