@@ -16,6 +16,11 @@
     {{ Form::hidden('Css', Config::get('payment::europabank.formCss')) }}
 @endif
 
+@if (Config::get('payment::europabank.template'))
+    {{ Form::hidden('Template', Config::get('payment::europabank.template')) }}
+@endif
+
+
 @if (Config::get('payment::europabank.formTitle'))
     {{ Form::hidden('Title', Config::get('payment::europabank.formTitle')) }}
 @endif

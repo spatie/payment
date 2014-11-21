@@ -87,6 +87,11 @@ return
                 'formCss'=> '',
 
                 /*
+                 * Url of the template which will be applied on  Europabank pages
+                 */
+                'template'=> '',
+
+                /*
                  * Optional title of the payment form
                  */
                 'formTitle' => '',
