@@ -1,7 +1,8 @@
 Accept payments from payment gateways
 =======
-[![Latest Stable Version](https://poser.pugx.org/spatie/payment/version.png)](https://packagist.org/packages/spatie/payment)
-[![License](https://poser.pugx.org/spatie/payment/license.png)](https://packagist.org/packages/spatie/payment)
+[![Latest Version](https://img.shields.io/github/release/spatie/payment.svg?style=flat-square)](https://github.com/spatie/payment/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/payment.svg?style=flat-square)](https://packagist.org/packages/spatie/payment)
 
 This Laravel package enables you to accept payments from payment gateways. Currently the only implementation is [Europabank](https://www.europabank.be/ecommerce-professioneel).
 
@@ -320,7 +321,7 @@ Then, in the same controller, in the method you use to handle the request coming
 ```
 That method requires the order id that you are expecting a payment for. Usually you should have stored that order id in session prior to redirecting to user to the site of payment provider.
 
-Notice that in previous example ```Checkout::getCurrentOrderId()``` is used. If you want such an elegant syntax check out the [spatie/checkout-package](https://github.com/freekmurze/checkout).
+Notice that in previous example ```Checkout::getCurrentOrderId()``` is used. If you want such an elegant syntax check out the [spatie/checkout-package](https://github.com/spatie/checkout).
 
 If the ```validateGatewayResponse```-method concludes that the request was not valid a ```Spatie\Payment\Exceptions\PaymentVerificationFailedException```-exception is thrown.
 
