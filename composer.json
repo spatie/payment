@@ -1,7 +1,7 @@
 {
     "name": "spatie/payment",
     "license": "MIT",
-    "homepage": "https://github.com/spatie/payment"
+    "homepage": "https://github.com/spatie/payment",
     "description": "A Laravel package to verify and accept payments from payment gateways",
     "keywords":
         [
