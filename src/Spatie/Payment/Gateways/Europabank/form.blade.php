@@ -1,5 +1,12 @@
 {{--do not use Form::open because we don't want the hidden token field --}}
-<form method="POST" action="{{ Config::get('payment::europabank.mpiUrl') }}" accept-charset="UTF-8">
+<form 
+    method="POST"
+    action="{{ Config::get('payment::europabank.mpiUrl') }}"
+    accept-charset="UTF-8"
+    @foreach($attributes as $attribute => $value)
+    {{ $attribute }}="{{ $value }}"
+    @endforeach
+>
 
 {{ Form::hidden('Uid', Config::get('payment::europabank.uid'))}}
 {{ Form::hidden('Orderid', $order->getPaymentOrderId()) }}

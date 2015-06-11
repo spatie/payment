@@ -287,6 +287,18 @@ The result of this form is something like:
 ```
 When clicking the submit button the customer gets redirected to the site of payment provider.
 
+You can also pass html attributes for the form element as an array.
+
+```
+{{ $paymentGateway->getPaymentForm(['class' => 'form']) }}
+```
+
+```
+<form method="POST" action="https://www.ebonline.be/test/mpi/authenticate" accept-charset="UTF-8" class="form">
+<!-- ... -->
+</form>
+```
+
 ###2. Verifying the payment
 So now we've redirected the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
 

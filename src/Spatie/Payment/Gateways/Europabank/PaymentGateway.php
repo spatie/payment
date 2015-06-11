@@ -26,14 +26,13 @@ class PaymentGateway implements PaymentGatewayInterface {
      *
      * @return string
      */
-
-    public function getPaymentForm()
+    public function getPaymentForm($attributes = [])
     {
         $order = $this->order;
         $hash = $this->calculatePaymentFormHash($order);
 
         View::addNamespace('payment', __DIR__);
-        return View::make('payment::form')->with(compact('order', 'hash'));
+        return View::make('payment::form')->with(compact('order', 'hash', 'attributes'));
     }
 
     /**
