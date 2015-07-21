@@ -6,6 +6,8 @@ Accept payments from payment gateways
 
 This Laravel package enables you to accept payments from payment gateways. Currently the only implementation is [Europabank](https://www.europabank.be/ecommerce-professioneel).
 
+Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+
 ##Installation
 The package can be installed through Composer:
 
@@ -403,21 +405,5 @@ The [Europabank API](https://www.europabank.be/ecommerce-professioneel) has many
 
 All the examples above are coded to an interface: it should be fairly easy to swap out Europabank and use an other provider like [Ingenico](http://payment-services.ingenico.com/). You most certainly are welcome to send push requests to implement other providers.
 
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
+## About Spatie
+Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
