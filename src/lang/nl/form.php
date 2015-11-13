@@ -2,6 +2,6 @@
 
 return [
 
-    'submitButtonText' => 'Bevestigen',
+    'submitButtonText' => 'Bestellen',
 
 ];
