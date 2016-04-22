@@ -12,13 +12,13 @@ return
 
         'europabank' =>
             [
-                'clientSecret' => getenv('EUROPABANK_CLIENT_SECRET'),
-                'serverSecret' => getenv('EUROPABANK_SERVER_SECRET'),
+                'clientSecret' => env('EUROPABANK_CLIENT_SECRET'),
+                'serverSecret' => env('EUROPABANK_SERVER_SECRET'),
 
                 /*
                  * MPI Account number
                  */
-                'uid' => getenv('EUROPABANK_UID'),
+                'uid' => env('EUROPABANK_UID'),
 
                 /*
                  * The url to where the payment will take place

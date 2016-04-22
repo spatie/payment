@@ -1,16 +1,18 @@
-<?php namespace Spatie\Payment;
+<?php
 
-interface PayableOrder {
+namespace Spatie\Payment;
 
+interface PayableOrder
+{
     /**
      * @return string
      */
     public function getPaymentOrderId();
 
     /**
-     * Should be in eurocents for most payments providers
-     * @return double
+     * Should be in eurocents for most payments providers.
      *
+     * @return float
      */
     public function getPaymentAmount();
 
@@ -28,6 +30,4 @@ interface PayableOrder {
      * @return string
      */
     public function getCustomerLanguage();
-
-
-} 
+}

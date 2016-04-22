@@ -1,11 +1,13 @@
-<?php namespace Spatie\Payment\Gateways\Europabank;
+<?php
+
+namespace Spatie\Payment\Gateways\Europabank;
 
 use Config;
 use Validator;
 use Spatie\Payment\Exceptions\PaymentVerificationFailedException;
 
-class PaymentGatewayResponseValidator {
-
+class PaymentGatewayResponseValidator
+{
     protected $currentOrderId;
     protected $gatewayResponse;
 
@@ -26,7 +28,7 @@ class PaymentGatewayResponseValidator {
     }
 
     /**
-     * Check if all necessary fields are present in the gateway-response
+     * Check if all necessary fields are present in the gateway-response.
      *
      * @throws PaymentVerificationFailedException
      */
@@ -34,62 +36,57 @@ class PaymentGatewayResponseValidator {
     {
         $rules =
             [
-                'Uid'     => 'required',
-                'Id'      => 'required',
-                'Hash'    => 'required',
+                'Uid' => 'required',
+                'Id' => 'required',
+                'Hash' => 'required',
                 'Orderid' => 'required',
-                'Status'  => 'required',
+                'Status' => 'required',
             ];
 
-        if (Validator::make($this->gatewayResponse, $rules)->fails())
-        {
+        if (Validator::make($this->gatewayResponse, $rules)->fails()) {
             throw new PaymentVerificationFailedException('The gateway response did not contain the necessary fields');
         }
     }
 
     /**
-     * Validate the uid
+     * Validate the uid.
      *
      * @throws PaymentVerificationFailedException
      */
     private function validateUid()
     {
-        if ($this->gatewayResponse['Uid'] != Config::get('payment::europabank.uid'))
-        {
+        if ($this->gatewayResponse['Uid'] != Config::get('payment::europabank.uid')) {
             throw new PaymentVerificationFailedException('Uid was not correct');
         }
     }
 
     /**
-     * Validate if the order id from the gatewayresponse is equal to the current order id
+     * Validate if the order id from the gatewayresponse is equal to the current order id.
      *
      * @throws PaymentVerificationFailedException
      */
     private function validateOrderId()
     {
-        if ($this->gatewayResponse['Orderid'] != $this->currentOrderId)
-        {
+        if ($this->gatewayResponse['Orderid'] != $this->currentOrderId) {
             throw new PaymentVerificationFailedException('The order id from the gateway response was not equal to the current order id');
         }
     }
 
-
     /**
      * Verify if the hash value given by the gateway matched the hash calculated
-     * from the gateway response
+     * from the gateway response.
      *
      * @throws PaymentVerificationFailedException
      */
     private function validateHash()
     {
-        if ($this->gatewayResponse['Hash'] != $this->computeHash())
-        {
+        if ($this->gatewayResponse['Hash'] != $this->computeHash()) {
             throw new PaymentVerificationFailedException('The hash value given by the gateway does not match the hash calculated from the gateway response');
         }
     }
 
     /**
-     * Compute the hash for the gateway response
+     * Compute the hash for the gateway response.
      *
      * @return string
      */
@@ -97,12 +94,10 @@ class PaymentGatewayResponseValidator {
     {
         return strtoupper(
             sha1(
-                $this->gatewayResponse['Id'] .
-                $this->gatewayResponse['Orderid'] .
+                $this->gatewayResponse['Id'].
+                $this->gatewayResponse['Orderid'].
                 Config::get('payment::europabank.clientSecret')
             )
         );
     }
-
-
-} 
+}

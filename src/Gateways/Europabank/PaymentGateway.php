@@ -1,28 +1,33 @@
-<?php namespace Spatie\Payment\Gateways\Europabank;
+<?php
+
+namespace Spatie\Payment\Gateways\Europabank;
+
 use Spatie\Payment\PayableOrder;
 use Spatie\Payment\PaymentGateway as PaymentGatewayInterface;
 use Input;
 use View;
 use Config;
 
-class PaymentGateway implements PaymentGatewayInterface {
-
+class PaymentGateway implements PaymentGatewayInterface
+{
     protected $order;
 
     /**
-     * Set the payable order
+     * Set the payable order.
      *
      * @param PayableOrder $order
+     *
      * @return PaymentGatewayInterface
      */
     public function setOrder(PayableOrder $order)
     {
         $this->order = $order;
+
         return $this;
     }
 
     /**
-     * Get the payment form
+     * Get the payment form.
      *
      * @return string
      */
@@ -32,31 +37,34 @@ class PaymentGateway implements PaymentGatewayInterface {
         $hash = $this->calculatePaymentFormHash($order);
 
         View::addNamespace('payment', __DIR__);
+
         return View::make('payment::form')->with(compact('order', 'hash', 'attributes'));
     }
 
     /**
-     * Calculate the hash for the PayableOrder
+     * Calculate the hash for the PayableOrder.
      *
      * @param PayableOrder $order
+     *
      * @return string
      */
     private function calculatePaymentFormHash(PayableOrder $order)
     {
         return sha1(
-            Config::get('payment::europabank.uid') .
-            $order->getPaymentOrderId() .
-            $order->getPaymentAmount() .
-            $order->getPaymentDescription() .
+            Config::get('payment::europabank.uid').
+            $order->getPaymentOrderId().
+            $order->getPaymentAmount().
+            $order->getPaymentDescription().
             Config::get('payment::europabank.clientSecret')
         );
     }
 
     /**
-     * Validate the gateway response
+     * Validate the gateway response.
      *
      * @param mixed $orderId
      * @param array $gatewayResponse
+     *
      * @return bool
      */
     public function validateGatewayResponse($orderId, $gatewayResponse = null)
@@ -66,21 +74,19 @@ class PaymentGateway implements PaymentGatewayInterface {
         return (new PaymentGatewayResponseValidator($orderId, $gatewayResponse))->validate();
     }
 
-
     /**
      * Determine the result of the payment
-     * If gatewayResponse is null, Input::all() will be used
+     * If gatewayResponse is null, Input::all() will be used.
      *
      * @param array $gatewayResponse
+     *
      * @return string
      */
-
     public function getPaymentResult($gatewayResponse = null)
     {
         $gatewayResponse = $gatewayResponse ?: Input::all();
 
-        switch($gatewayResponse['Status'])
-        {
+        switch ($gatewayResponse['Status']) {
             case 'AU':
                 $paymentResult = self::PAYMENT_RESULT_OK;
                 break;

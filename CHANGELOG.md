@@ -2,6 +2,9 @@
 
 All Notable changes to `spatie/payment` will be documented in this file
 
+## 2.0.0
+- Laravel 5 compatibility
+
 ## 1.1.1
 - Comply with local law
 
