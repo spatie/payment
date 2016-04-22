@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Payment": "src/"
+            "Spatie\\Payment\\": "src/"
         }
     },
     "minimum-stability": "stable"
