@@ -403,7 +403,7 @@ Currently the only implemented gateway provider is Europabank. They can give fee
 
 The [Europabank API](https://www.europabank.be/ecommerce-professioneel) has many more options than this package currently provides.
 
-All the examples above are coded to an interface: it should be fairly easy to swap out Europabank and use an other provider like [Ingenico](http://payment-services.ingenico.com/). You most certainly are welcome to send push requests to implement other providers.
+All the examples above are coded to an interface: it should be fairly easy to swap out Europabank and use an other provider like [Ingenico](http://payment-services.ingenico.com/). You most certainly are welcome to send pull requests to implement other providers.
 
 ## About Spatie
 Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
