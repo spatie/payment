@@ -1,46 +1,46 @@
 {{--do not use Form::open because we don't want the hidden token field --}}
 <form 
     method="POST"
-    action="{{ Config::get('payment::europabank.mpiUrl') }}"
+    action="{{ config('payment.europabank.mpiUrl') }}"
     accept-charset="UTF-8"
     @foreach($attributes as $attribute => $value)
     {{ $attribute }}="{{ $value }}"
     @endforeach
 >
 
-{{ Form::hidden('Uid', Config::get('payment::europabank.uid'))}}
+{{ Form::hidden('Uid', config('payment.europabank.uid'))}}
 {{ Form::hidden('Orderid', $order->getPaymentOrderId()) }}
 {{ Form::hidden('Amount', $order->getPaymentAmount()) }}
 {{ Form::hidden('Description', $order->getPaymentDescription()) }}
 {{ Form::hidden('Hash', $hash) }}
-{{ Form::hidden('Beneficiary', Config::get('app.name')) }}
+{{ Form::hidden('Beneficiary', config('app.name')) }}
 {{ Form::hidden('Redirecttype', 'DIRECT') }}
-{{ Form::hidden('Redirecturl', URL::route(Config::get('payment::europabank.paymentLandingPageRoute'))) }}
+{{ Form::hidden('Redirecturl', URL::route(config('payment.europabank.paymentLandingPageRoute'))) }}
 {{ Form::hidden('Chemail', $order->getCustomerEmail()) }}
 {{ Form::hidden('Chlanguage', $order->getCustomerLanguage()) }}
 
-@if (Config::get('payment::europabank.formCss'))
-    {{ Form::hidden('Css', Config::get('payment::europabank.formCss')) }}
+@if (config('payment.europabank.formCss'))
+    {{ Form::hidden('Css', config('payment.europabank.formCss')) }}
 @endif
 
-@if (Config::get('payment::europabank.template'))
-    {{ Form::hidden('Template', Config::get('payment::europabank.template')) }}
+@if (config('payment.europabank.template'))
+    {{ Form::hidden('Template', config('payment.europabank.template')) }}
 @endif
 
 
-@if (Config::get('payment::europabank.formTitle'))
-    {{ Form::hidden('Title', Config::get('payment::europabank.formTitle')) }}
+@if (config('payment.europabank.formTitle'))
+    {{ Form::hidden('Title', config('payment.europabank.formTitle')) }}
 @endif
 
-@if (Config::get('payment::europabank.merchantEmail'))
-    {{ Form::hidden('MerchantEmail', Config::get('payment::europabank.merchantEmail')) }}
+@if (config('payment.europabank.merchantEmail'))
+    {{ Form::hidden('MerchantEmail', config('payment.europabank.merchantEmail')) }}
 @endif
 
-@if (Config::get('payment::europabank.secondChanceEmailSender'))
-    {{ Form::hidden('Emailfrom', Config::get('payment::europabank.secondChanceEmailSender')) }}
+@if (config('payment.europabank.secondChanceEmailSender'))
+    {{ Form::hidden('Emailfrom', config('payment.europabank.secondChanceEmailSender')) }}
 @endif
 
-{{ Form::button(Lang::get('payment::form.submitButtonText'), ["type"=>"submit", "class"=> Config::get('payment::form.submitButtonClass')]) }}
+{{ Form::button(Lang::get('payment::form.submitButtonText'), ["type"=>"submit", "class"=> config('payment.form.submitButtonClass')]) }}
 
 
 </form>

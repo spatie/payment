@@ -6,7 +6,6 @@ use Spatie\Payment\PayableOrder;
 use Spatie\Payment\PaymentGateway as PaymentGatewayInterface;
 use Input;
 use View;
-use Config;
 
 class PaymentGateway implements PaymentGatewayInterface
 {
@@ -51,11 +50,11 @@ class PaymentGateway implements PaymentGatewayInterface
     private function calculatePaymentFormHash(PayableOrder $order)
     {
         return sha1(
-            Config::get('payment::europabank.uid').
+            config('payment.europabank.uid').
             $order->getPaymentOrderId().
             $order->getPaymentAmount().
             $order->getPaymentDescription().
-            Config::get('payment::europabank.clientSecret')
+            config('payment.europabank.clientSecret')
         );
     }
 

@@ -2,7 +2,6 @@
 
 namespace Spatie\Payment\Gateways\Europabank;
 
-use Config;
 use Validator;
 use Spatie\Payment\Exceptions\PaymentVerificationFailedException;
 
@@ -55,7 +54,7 @@ class PaymentGatewayResponseValidator
      */
     private function validateUid()
     {
-        if ($this->gatewayResponse['Uid'] != Config::get('payment::europabank.uid')) {
+        if ($this->gatewayResponse['Uid'] != config('payment.europabank.uid')) {
             throw new PaymentVerificationFailedException('Uid was not correct');
         }
     }
@@ -96,7 +95,7 @@ class PaymentGatewayResponseValidator
             sha1(
                 $this->gatewayResponse['Id'].
                 $this->gatewayResponse['Orderid'].
-                Config::get('payment::europabank.clientSecret')
+                config('payment.europabank.clientSecret')
             )
         );
     }
