@@ -9,15 +9,17 @@ class PaymentServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-		$this->mergeConfigFrom(__DIR__.'/../config/payment.php', 'payment');
+	$this->mergeConfigFrom(__DIR__.'/../config/payment.php', 'payment');
 
-		$this->publishes([
-			__DIR__.'/../resources/lang' => base_path('resources/lang/vendor/paginateroute'),
-		], 'lang');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'payment');
 
-		$this->publishes([
-			__DIR__.'/../config/payment.php' => base_path('config/payment.php'),
-		], 'config');
+	$this->publishes([
+		__DIR__.'/../resources/lang' => base_path('resources/lang/vendor/payment'),
+	], 'lang');
+
+	$this->publishes([
+		__DIR__.'/../config/payment.php' => base_path('config/payment.php'),
+	], 'config');
     }
 
     public function register()
