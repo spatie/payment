@@ -1,5 +1,5 @@
-Accept payments from payment gateways
-=======
+# Accept payments from payment gateways
+
 [![Latest Version](https://img.shields.io/github/release/spatie/payment.svg?style=flat-square)](https://github.com/spatie/payment/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/payment.svg?style=flat-square)](https://packagist.org/packages/spatie/payment)
@@ -36,21 +36,7 @@ This service provider must be installed:
 ];
 ```
 
-This package also comes with a facade, which provides an easy way to call the the functionality.
-
-
-```php
-
-//for laravel <=4.2: app/config/app.php
-
-'aliases' => array(
-	...
-	'Payment' => 'Spatie\Payment\PaymentFacade',
-	...
-)
-```
-
-##Configuration
+## Configuration
 You can publish the configuration file using this command:
 ```
 php artisan config:publish spatie/payment
@@ -122,11 +108,11 @@ return
 ```
 
 
-##General payment flow
+## General payment flow
 
 Though there are multiple ways to pay an order, most payment gateways except you to follow the following flow in your checkout process:
 
-###1. The customer is redirected to the payment provider
+### 1. The customer is redirected to the payment provider
 After the customer has gone through the checkout process and is ready to pay, the customer must be redirected to site of the payment provider.
 
 The redirection is accomplished by submitting a form with some hidden fields. The form must post to the site of the payment provider. The hidden fields minimally specify the amount that must be paid, the order id and a hash.
@@ -134,7 +120,7 @@ The redirection is accomplished by submitting a form with some hidden fields. Th
 The hash is calculated using the hidden form fields and a non-public secret. The hash used by the payment provider to verify if the request is valid.
 
 
-###2. The customer pays on the site of the payment provider
+### 2. The customer pays on the site of the payment provider
 The customer arrived on the site of the payment provider and gets to choose a payment method. All steps necessary to pay the order are taken care of by the payment provider. 
 
 ###3. The customer gets redirected back
@@ -144,10 +130,10 @@ The hash is calculated out of some of the fields returned and a secret non-publi
 
 The payment result can be something like "payment ok", "customer cancelled payment" or "payment declined".
 
-##Usage
+## Usage
 This package can greatly help you with step 1. and 3. of the general flow
 
-###1. Redirecting to customer to the payment provider
+### 1. Redirecting to customer to the payment provider
 Let's get technical. In the controller in which you will present a view to redirect to user to the payment provider you must inject the payment gateway like so:
 
 ```php
@@ -309,7 +295,7 @@ You can also pass html attributes for the form element as an array.
 </form>
 ```
 
-###2. Verifying the payment
+### 2. Verifying the payment
 So now we've redirected the customer to the payment provider. The customer did some actions there (hopefully he or she paid the order) and now gets redirected back to our shop site.
 
 The payment provider will redirect the customer to the url of the route that is specified in the ```paymentLandingPageRoute```-option of the config-file.
@@ -346,8 +332,8 @@ That method requires the order id that you are expecting a payment for. Usually 
 Notice that in previous example ```Checkout::getCurrentOrderId()``` is used. If you want such an elegant syntax check out the [spatie/checkout-package](https://github.com/spatie/checkout).
 
 If the ```validateGatewayResponse```-method concludes that the request was not valid a ```Spatie\Payment\Exceptions\PaymentVerificationFailedException```-exception is thrown.
-
-###3. Getting the payment result
+ 
+### 3. Getting the payment result
 After you've verified that the redirect from the payment provider to your site is valid you can determine the result of the payment.
 
 To determine the result you can use the ```getPaymentResult()```-method. It can return these constants:
@@ -406,7 +392,7 @@ class CheckoutPaymentVerificationController extends BaseController {
 }
 ```
 
-##Remarks
+## Remarks
 Currently the only implemented gateway provider is Europabank. They can give feedback on a payment in many different ways, but this package only supports the 'DIRECT'-redirecttype.
 
 The [Europabank API](https://www.europabank.be/ecommerce-professioneel) has many more options than this package currently provides.
