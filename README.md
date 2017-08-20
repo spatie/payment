@@ -123,7 +123,7 @@ The hash is calculated using the hidden form fields and a non-public secret. The
 ### 2. The customer pays on the site of the payment provider
 The customer arrived on the site of the payment provider and gets to choose a payment method. All steps necessary to pay the order are taken care of by the payment provider. 
 
-###3. The customer gets redirected back
+### 3. The customer gets redirected back
 After having paid the order the customer is redirected back. In the redirection request to the shop-site some values are returned. The values are usually the order id, a paymentresult and a hash.
 
 The hash is calculated out of some of the fields returned and a secret non-public value. This hash is used to verify if the request is valid and comes from the payment provider. It is paramount that this hash is thoroughly checked.
