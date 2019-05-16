@@ -1,3 +1,5 @@
+**THIS PACKAGE IS NOT MAINTAINED ANYMORE**
+
 # Accept payments from payment gateways
 
 [![Latest Version](https://img.shields.io/github/release/spatie/payment.svg?style=flat-square)](https://github.com/spatie/payment/releases)
